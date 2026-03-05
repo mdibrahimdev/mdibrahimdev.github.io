@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Ibrahim — Data Scientist</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#ffffff;
+  --bg:#f9f8f6;
+  --dark:#111110;
+  --dark2:#1c1c1a;
+  --border:#e5e2dc;
+  --accent:#1a4d8f;
+  --accent-bg:#eef3fa;
+  --text:#111110;
+  --muted:#6b6860;
+  --muted2:#9c9890;
+  --green:#1a6640;
+  --green-bg:#edf5f0;
+  --head:'Fraunces',serif;
+  --body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:var(--body);overflow-x:hidden;font-size:15px;-webkit-font-smoothing:antialiased}
+
+/* CURSOR LINE */
+.top-bar{height:3px;background:linear-gradient(90deg,var(--accent),#6a9fd8);width:100%}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 72px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);z-index:100}
+.nav-name{font-family:var(--head);font-size:18px;font-weight:600;color:var(--dark);letter-spacing:-0.3px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:400;transition:color 0.15s;letter-spacing:0.1px}
+.nav-links a:hover{color:var(--dark)}
+.nav-hire{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--dark);color:#fff;text-decoration:none;font-size:13px;font-weight:500;border-radius:6px;transition:background 0.2s;letter-spacing:0.1px}
+.nav-hire:hover{background:var(--accent)}
+
+/* HERO */
+.hero{max-width:900px;margin:0 auto;padding:100px 40px 80px;text-align:center}
+.avail-pill{display:inline-flex;align-items:center;gap:7px;padding:6px 16px;background:var(--green-bg);color:var(--green);border-radius:100px;font-size:12px;font-weight:500;margin-bottom:40px;border:1px solid rgba(26,102,64,0.15)}
+.avail-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-title{font-family:var(--head);font-size:clamp(52px,7vw,90px);font-weight:300;line-height:1.05;letter-spacing:-3px;color:var(--dark);margin-bottom:8px;animation:fadeUp 0.9s ease both}
+.hero-title em{font-style:italic;font-weight:400}
+.hero-title strong{font-weight:600;color:var(--accent)}
+.hero-role{font-size:16px;color:var(--muted);margin-bottom:32px;font-weight:400;letter-spacing:0.1px;animation:fadeUp 0.9s 0.1s ease both}
+.hero-desc{font-size:17px;color:var(--muted);line-height:1.75;max-width:600px;margin:0 auto 44px;font-weight:300;animation:fadeUp 0.9s 0.2s ease both}
+.hero-desc strong{color:var(--dark);font-weight:500}
+.hero-btns{display:flex;gap:12px;justify-content:center;margin-bottom:56px;animation:fadeUp 0.9s 0.3s ease both}
+.btn-hire{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--dark);color:#fff;text-decoration:none;font-size:14px;font-weight:500;border-radius:8px;transition:all 0.2s;letter-spacing:0.1px}
+.btn-hire:hover{background:var(--accent);transform:translateY(-1px)}
+.btn-view{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--bg);color:var(--dark);text-decoration:none;font-size:14px;font-weight:500;border-radius:8px;border:1px solid var(--border);transition:all 0.2s}
+.btn-view:hover{border-color:var(--dark);transform:translateY(-1px)}
+
+/* Platform row */
+.platforms{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;animation:fadeUp 0.9s 0.4s ease both}
+.plat{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--muted);text-decoration:none;background:var(--white);transition:all 0.2s;font-weight:400}
+.plat:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px solid var(--border);margin:0}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.stat{padding:40px;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:var(--head);font-size:52px;font-weight:300;letter-spacing:-3px;color:var(--dark);line-height:1;margin-bottom:6px}
+.stat-n em{font-style:italic;color:var(--accent)}
+.stat-l{font-size:12px;color:var(--muted2);font-weight:400;letter-spacing:0.5px;text-transform:uppercase}
+
+/* SECTIONS */
+.section{padding:80px 72px;border-bottom:1px solid var(--border)}
+.section-inner{max-width:1080px;margin:0 auto}
+.sec-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);margin-bottom:20px;font-weight:500}
+.sec-title{font-family:var(--head);font-size:clamp(32px,4vw,48px);font-weight:300;letter-spacing:-1.5px;line-height:1.1;margin-bottom:48px}
+.sec-title em{font-style:italic;color:var(--accent)}
+
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.srv{background:var(--white);padding:36px 32px;transition:background 0.2s}
+.srv:hover{background:var(--bg)}
+.srv-num{font-family:var(--head);font-size:13px;color:var(--muted2);margin-bottom:20px;font-weight:300}
+.srv-name{font-family:var(--head);font-size:21px;font-weight:400;margin-bottom:10px;letter-spacing:-0.5px;line-height:1.2}
+.srv-desc{color:var(--muted);font-size:13px;line-height:1.75;margin-bottom:18px}
+.srv-tools{display:flex;flex-wrap:wrap;gap:6px}
+.stl{font-size:11px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);color:var(--muted2);border-radius:4px}
+
+/* PROJECTS */
+.proj-section{background:var(--dark);color:#fff}
+.proj-section .sec-eyebrow{color:rgba(255,255,255,0.35)}
+.proj-section .sec-title{color:#fff}
+.proj-section .sec-title em{color:#7aabde}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.fb{padding:7px 18px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:rgba(255,255,255,0.45);font-size:12px;cursor:pointer;border-radius:100px;transition:all 0.2s;font-family:var(--body);letter-spacing:0.3px}
+.fb:hover,.fb.active{border-color:rgba(255,255,255,0.6);color:#fff;background:rgba(255,255,255,0.08)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proj{background:#1c1c1a;border:1px solid rgba(255,255,255,0.07);padding:32px;border-radius:8px;transition:all 0.25s;display:flex;flex-direction:column}
+.proj:hover{border-color:rgba(122,171,222,0.3);transform:translateY(-3px)}
+.proj-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.ptype{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:100px;font-weight:500}
+.t-ml{background:rgba(122,171,222,0.12);color:#7aabde;border:1px solid rgba(122,171,222,0.2)}
+.t-da{background:rgba(110,200,140,0.12);color:#6ec88c;border:1px solid rgba(110,200,140,0.2)}
+.t-dv{background:rgba(230,180,80,0.12);color:#e6b450;border:1px solid rgba(230,180,80,0.2)}
+.t-ws{background:rgba(200,130,220,0.12);color:#c882dc;border:1px solid rgba(200,130,220,0.2)}
+.t-db{background:rgba(240,130,100,0.12);color:#f08264;border:1px solid rgba(240,130,100,0.2)}
+.proj-link-i{color:rgba(255,255,255,0.25);text-decoration:none;font-size:16px;transition:all 0.2s}
+.proj:hover .proj-link-i{color:#7aabde}
+.proj-title{font-family:var(--head);font-size:19px;font-weight:400;margin-bottom:10px;letter-spacing:-0.3px;line-height:1.25;color:#f0ede8}
+.proj-desc{color:rgba(255,255,255,0.45);font-size:13px;line-height:1.75;margin-bottom:18px;flex:1;font-weight:300}
+.proj-impact{display:flex;align-items:center;gap:6px;margin-bottom:14px;font-size:12px;color:#6ec88c;font-weight:500}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px}
+.ptag{font-size:10px;padding:2px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.35);border-radius:3px}
+.view-all{text-align:center;margin-top:36px}
+.btn-gh{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;border-radius:6px;transition:all 0.2s}
+.btn-gh:hover{border-color:rgba(255,255,255,0.4);color:#fff}
+
+/* EXPERIENCE */
+.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.ecard{background:var(--white);padding:36px 32px;transition:background 0.2s;position:relative}
+.ecard:hover{background:var(--bg)}
+.ebadge{display:inline-flex;align-items:center;padding:3px 12px;border-radius:100px;font-size:10px;font-weight:500;margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
+.b-edu{background:var(--accent-bg);color:var(--accent);border:1px solid rgba(26,77,143,0.15)}
+.b-hack{background:#fef9ec;color:#8a6a00;border:1px solid rgba(138,106,0,0.15)}
+.b-vol{background:var(--green-bg);color:var(--green);border:1px solid rgba(26,102,64,0.15)}
+.erole{font-family:var(--head);font-size:22px;font-weight:400;margin-bottom:4px;letter-spacing:-0.5px}
+.eorg{font-size:12px;color:var(--accent);margin-bottom:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase}
+.eperiod{font-size:12px;color:var(--muted2);margin-bottom:14px;font-weight:300}
+.edesc{color:var(--muted);font-size:13px;line-height:1.75;font-weight:300}
+
+/* CONTACT */
+.contact-section{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:80px;align-items:start}
+.ct-title{font-family:var(--head);font-size:clamp(40px,5vw,64px);font-weight:300;letter-spacing:-2px;line-height:1.05;color:var(--dark);margin-bottom:16px}
+.ct-title em{font-style:italic;color:var(--accent)}
+.ct-desc{color:var(--muted);line-height:1.75;font-size:14px;margin-bottom:36px;font-weight:300}
+.plat-list{display:flex;flex-direction:column;gap:8px;margin-bottom:32px}
+.pl{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--dark);transition:all 0.2s;background:var(--white)}
+.pl:hover{border-color:var(--accent);background:var(--accent-bg)}
+.pl-l{display:flex;align-items:center;gap:10px}
+.pl-icon{font-size:15px}
+.pl-name{font-size:13px;font-weight:500}
+.pl-arr{color:var(--muted2);transition:transform 0.2s;font-size:14px}
+.pl:hover .pl-arr{color:var(--accent);transform:translate(2px,-2px)}
+.clinks{display:flex;flex-direction:column;gap:8px}
+.cl{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--dark);transition:all 0.2s;background:var(--white)}
+.cl:hover{border-color:var(--accent);background:var(--accent-bg)}
+.cl-type{font-size:10px;color:var(--muted2);letter-spacing:1.5px;text-transform:uppercase;display:block;margin-bottom:3px;font-weight:400}
+.cl-val{font-size:13px;font-weight:400;color:var(--dark)}
+.cl-arr{color:var(--muted2);font-size:14px;transition:transform 0.2s}
+.cl:hover .cl-arr{color:var(--accent);transform:translate(2px,-2px)}
+
+/* FOOTER */
+footer{padding:24px 72px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+.ft{font-size:12px;color:var(--muted2);font-weight:300}
+.fnav{display:flex;gap:24px}
+.fnav a{font-size:12px;color:var(--muted2);text-decoration:none;transition:color 0.15s;font-weight:300}
+.fnav a:hover{color:var(--dark)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  nav{padding:16px 20px} .nav-links{display:none}
+  .hero{padding:72px 20px 56px}
+  .stats{grid-template-columns:1fr 1fr} .stat{border-right:none;border-bottom:1px solid var(--border)}
+  .section{padding:56px 20px}
+  .srv-grid,.proj-grid{grid-template-columns:1fr}
+  .exp-grid,.contact-grid{grid-template-columns:1fr;gap:32px}
+  footer{flex-direction:column;gap:8px;padding:20px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Md Ibrahim</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Background</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:mdibrahimkholil.dev@gmail.com" class="nav-hire">Hire Me →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="avail-pill"><span class="avail-dot"></span> Available for freelance work</div>
+  <h1 class="hero-title">
+    Data Scientist<br><em>& ML</em> <strong>Engineer.</strong>
+  </h1>
+  <p class="hero-role">Python · SQL · Machine Learning · Deep Learning · Rajshahi, Bangladesh</p>
+  <p class="hero-desc">
+    Hi, I'm <strong>Md Ibrahim</strong> — a Data Scientist with <strong>20+ real-world projects</strong> on GitHub. I help businesses turn raw data into decisions that matter. NASA Space Apps participant. CSE student at University of the People.
+  </p>
+  <div class="hero-btns">
+    <a href="mailto:mdibrahimkholil.dev@gmail.com" class="btn-hire">Get in Touch</a>
+    <a href="#projects" class="btn-view">See My Work</a>
+  </div>
+  <div class="platforms">
+    <a href="https://www.upwork.com" target="_blank" class="plat">⬆ Upwork</a>
+    <a href="https://www.fiverr.com" target="_blank" class="plat">🟢 Fiverr</a>
+    <a href="https://www.toptal.com" target="_blank" class="plat">🔵 Toptal</a>
+    <a href="https://www.freelancer.com" target="_blank" class="plat">🔷 Freelancer</a>
+    <a href="https://kaggle.com/mdibrahim33" target="_blank" class="plat">📊 Kaggle</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat reveal"><div class="stat-n"><em>20</em>+</div><div class="stat-l">GitHub Projects</div></div>
+  <div class="stat reveal"><div class="stat-n">5</div><div class="stat-l">Service Areas</div></div>
+  <div class="stat reveal"><div class="stat-n"><em>500</em>+</div><div class="stat-l">Connections</div></div>
+  <div class="stat reveal"><div class="stat-n">24h</div><div class="stat-l">Response Time</div></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="section-inner">
+    <div class="sec-eyebrow reveal">What I offer</div>
+    <h2 class="sec-title reveal">Services that <em>drive results.</em></h2>
+    <div class="srv-grid">
+      <div class="srv reveal">
+        <div class="srv-num">01</div>
+        <div class="srv-name">Machine Learning Models</div>
+        <p class="srv-desc">Custom ML models for prediction, classification & clustering. End-to-end pipeline — from raw data to accurate, deployable predictions.</p>
+        <div class="srv-tools"><span class="stl">Scikit-learn</span><span class="stl">XGBoost</span><span class="stl">Python</span><span class="stl">Keras</span></div>
+      </div>
+      <div class="srv reveal">
+        <div class="srv-num">02</div>
+        <div class="srv-name">Data Analysis</div>
+        <p class="srv-desc">Deep exploratory analysis, statistical testing and clear business insight reports from your data. Turn numbers into decisions.</p>
+        <div class="srv-tools"><span class="stl">Pandas</span><span class="stl">NumPy</span><span class="stl">SQL</span><span class="stl">Python</span></div>
+      </div>
+      <div class="srv reveal">
+        <div class="srv-num">03</div>
+        <div class="srv-name">Data Visualization</div>
+        <p class="srv-desc">Clear, beautiful charts and reports that make complex data easy to understand for any audience — technical or not.</p>
+        <div class="srv-tools"><span class="stl">Matplotlib</span><span class="stl">Seaborn</span><span class="stl">Plotly</span><span class="stl">Power BI</span></div>
+      </div>
+      <div class="srv reveal">
+        <div class="srv-num">04</div>
+        <div class="srv-name">Web Scraping</div>
+        <p class="srv-desc">Automated data collection from any website or API. Clean, structured output in CSV, JSON or Excel — ready for analysis.</p>
+        <div class="srv-tools"><span class="stl">BeautifulSoup</span><span class="stl">Scrapy</span><span class="stl">Selenium</span><span class="stl">Requests</span></div>
+      </div>
+      <div class="srv reveal">
+        <div class="srv-num">05</div>
+        <div class="srv-name">Dashboard Development</div>
+        <p class="srv-desc">Interactive dashboards with real-time filters and KPIs to track your business metrics and share insights with stakeholders.</p>
+        <div class="srv-tools"><span class="stl">Streamlit</span><span class="stl">Dash</span><span class="stl">Plotly</span><span class="stl">Power BI</span></div>
+      </div>
+      <div class="srv reveal">
+        <div class="srv-num">06</div>
+        <div class="srv-name">Deep Learning</div>
+        <p class="srv-desc">Neural network solutions for image recognition, NLP and time series forecasting using modern DL frameworks and architectures.</p>
+        <div class="srv-tools"><span class="stl">TensorFlow</span><span class="stl">Keras</span><span class="stl">CNN</span><span class="stl">RNN</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section proj-section">
+  <div class="section-inner">
+    <div class="sec-eyebrow reveal">Selected work</div>
+    <h2 class="sec-title reveal">20+ projects. <em>Real results.</em></h2>
+    <div class="filter-row reveal">
+      <button class="fb active" onclick="filterP('all',this)">All</button>
+      <button class="fb" onclick="filterP('ml',this)">ML Models</button>
+      <button class="fb" onclick="filterP('da',this)">Data Analysis</button>
+      <button class="fb" onclick="filterP('dv',this)">Visualization</button>
+      <button class="fb" onclick="filterP('ws',this)">Web Scraping</button>
+      <button class="fb" onclick="filterP('db',this)">Dashboard</button>
+    </div>
+    <div class="proj-grid" id="pg">
+
+      <div class="proj reveal" data-cat="ml">
+        <div class="proj-top"><span class="ptype t-ml">ML Model</span><a href="https://github.com/mdibrahimdev" target="_blank" class="proj-link-i">↗</a></div>
+        <div class="proj-title">Customer Churn Prediction</div>
+        <p class="proj-desc">Predict which customers are likely to leave using classification algorithms. Full pipeline from raw data to business insights.</p>
+        <div class="proj-impact">📈 ~92% accuracy · Reduced churn risk</div>
+        <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">XGBoost</span><span class="ptag">Scikit-learn</span><span class="ptag">Pandas</span></div>
+      </div>
+
+      <div class="proj reveal" data-cat="ml">
+        <div class="proj-top"><span class="ptype t-ml">ML Model</span><a href="https://github.com/mdibrahimdev" target="_blank" class="proj-link-i">↗</a></div>
+        <div class="proj-title">House Price Prediction</div>
+        <p class="proj-desc">Regression model to predict property prices based on location, size and features using ensemble learning methods.</p>
+        <div class="proj-impact">📈 High accuracy · Real estate insights</div>
+        <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Random Forest</span><span class="ptag">Regression</span><span class="ptag">NumPy</span></div>
+      </div>
+
+      <div class="proj reveal" data-cat="ml">
+        <div class="proj-top"><span class="ptype t-ml">NLP Model</span><a href="https://github.com/mdibrahimdev" target="_blank" class="proj-link-i">↗</a></div>
+        <div class="proj-title">Sentiment Analysis</div>
+        <p class="proj-desc">Text classification to detect positive, negative or neutral sentiment from customer reviews using NLP techniques.</p>
+        <div class="proj-impact">📈 Automated review analysis</div>
+        <div class="proj-tags"><span class="ptag">NLTK</span><span class="ptag">Scikit-learn</span><span class="ptag">Python</span><span class="ptag">NLP</span></div>
+      </div>
+
+      <div class="proj reveal" data-cat="da">
+        <div class="proj-top"><span class="ptype t-da">Data Analysis</span><a href="https://github.com/mdibrahimdev" target="_blank" class="proj-link-i">↗</a></div>
+        <div class="proj-title">NASA Space Apps Challenge</div>
+        <p class="proj-desc">Analyzed complex space and Earth science datasets for NASA's global hackathon using statistical methods to extract meaningful patterns.</p>
+        <div class="proj-impact">🚀 Global hackathon · Oct 2025</div>
+        <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Research</span><span class="ptag">NASA Data</span></div>
+      </div>
+
+      <div class="proj reveal" data-cat="da">
+        <div class="proj-top"><span class="ptype t-da">Data Analysis</span><a href="https://github.com/mdibrahimdev" target="_blank" class="proj-link-i">↗</a></div>
+        <div class="proj-title">COVID-19 Global Analysis</div>
+        <p class="proj-desc">Comprehensive analysis of COVID-19 global dataset including trend analysis, growth rates and country-wise comparisons.</p>
+        <div class="proj-impact">📊 180+ countries analyzed</div>
+        <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">NumPy</span><span class="ptag">Statistics</span></div>
+      </div>
+
+      <div class="proj reveal" data-cat="dv">
+        <div class="proj-top"><span class="ptype t-dv">Visualization</span><a href="https://github.com/mdibrahimdev" target="_blank" class="proj-link-i">↗</a></div>
+        <div class="proj-title">Sales Performance Charts</div>
+        <p class="proj-desc">Interactive visualization of sales data with monthly trends, product breakdown and regional performance analysis.</p>
+        <div class="proj-impact">📈 Clear business insights</div>
+        <div class="proj-tags"><span class="ptag">Plotly</span><span class="ptag">Matplotlib</span><span class="ptag">Seaborn</span><span class="ptag">Python</span></div>
+      </div>
+
+      <div class="proj reveal" data-cat="ws">
+        <div class="proj-top"><span class="ptype t-ws">Web Scraping</span><a href="https://github.com/mdibrahimdev" target="_blank" class="proj-link-i">↗</a></div>
+        <div class="proj-title">E-commerce Price Scraper</div>
+        <p class="proj-desc">Automated scraper to collect product prices and ratings from e-commerce sites. Outputs clean CSV with price history tracking.</p>
+        <div class="proj-impact">⚡ Fully automated · Clean output</div>
+        <div class="proj-tags"><span class="ptag">BeautifulSoup</span><span class="ptag">Selenium</span><span class="ptag">Python</span><span class="ptag">CSV</span></div>
+      </div>
+
+      <div class="proj reveal" data-cat="db">
+        <div class="proj-top"><span class="ptype t-db">Dashboard</span><a href="https://github.com/mdibrahimdev" target="_blank" class="proj-link-i">↗</a></div>
+        <div class="proj-title">Business KPI Dashboard</div>
+        <p class="proj-desc">Streamlit-powered interactive dashboard showing revenue trends, customer segments and real-time data filters for executives.</p>
+        <div class="proj-impact">📊 Real-time · Fully interactive</div>
+        <div class="proj-tags"><span class="ptag">Streamlit</span><span class="ptag">Plotly</span><span class="ptag">Python</span><span class="ptag">Pandas</span></div>
+      </div>
+
+      <div class="proj reveal" data-cat="ml">
+        <div class="proj-top"><span class="ptype t-ml">Deep Learning</span><a href="https://github.com/mdibrahimdev" target="_blank" class="proj-link-i">↗</a></div>
+        <div class="proj-title">Image Classification CNN</div>
+        <p class="proj-desc">CNN to classify images with high accuracy. Includes data augmentation, transfer learning and model optimization using TensorFlow.</p>
+        <div class="proj-impact">📈 High accuracy classification</div>
+        <div class="proj-tags"><span class="ptag">TensorFlow</span><span class="ptag">Keras</span><span class="ptag">CNN</span><span class="ptag">Python</span></div>
+      </div>
+
+    </div>
+    <div class="view-all reveal">
+      <a href="https://github.com/mdibrahimdev?tab=repositories" target="_blank" class="btn-gh">View All 20+ Projects on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="section-inner">
+    <div class="sec-eyebrow reveal">Background</div>
+    <h2 class="sec-title reveal">Education & <em>experience.</em></h2>
+    <div class="exp-grid">
+      <div class="ecard reveal">
+        <span class="ebadge b-edu">Education</span>
+        <div class="erole">B.Sc. Computer Science</div>
+        <div class="eorg">University of the People · USA</div>
+        <div class="eperiod">2025 — 2028 · Accredited Online University</div>
+        <p class="edesc">Studying CS with focus on algorithms, data structures and software engineering. Combining academics with daily hands-on data science practice.</p>
+      </div>
+      <div class="ecard reveal">
+        <span class="ebadge b-hack">Hackathon</span>
+        <div class="erole">NASA Space Apps Participant</div>
+        <div class="eorg">NASA · Global Hackathon</div>
+        <div class="eperiod">October 2025 · International Competition</div>
+        <p class="edesc">Competed in one of the world's largest hackathons. Built ML solutions to address real NASA Earth and space science challenges.</p>
+      </div>
+      <div class="ecard reveal">
+        <span class="ebadge b-vol">Volunteer</span>
+        <div class="erole">Data Science Volunteer</div>
+        <div class="eorg">Statistics Without Borders</div>
+        <div class="eperiod">January 2026 — Present</div>
+        <p class="edesc">Applying statistical expertise to humanitarian projects globally. Helping underserved communities through data-driven solutions.</p>
+      </div>
+      <div class="ecard reveal">
+        <span class="ebadge b-vol">Volunteer</span>
+        <div class="erole">Community Volunteer</div>
+        <div class="eorg">Volunteer for Bangladesh · Bogra</div>
+        <div class="eperiod">April 2024 — December 2025</div>
+        <p class="edesc">Developed project management and teamwork skills. Collaborated with teams to deliver impactful community projects across Rajshahi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact-section">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="sec-eyebrow">Get in touch</div>
+        <h2 class="ct-title">Let's work<br><em>together.</em></h2>
+        <p class="ct-desc">Open to freelance projects, collaborations and full-time opportunities worldwide. I respond within 24 hours. Fast delivery, clean work, clear communication.</p>
+        <div class="plat-list">
+          <a href="https://www.upwork.com" target="_blank" class="pl"><div class="pl-l"><span class="pl-icon">⬆</span><span class="pl-name">Hire on Upwork</span></div><span class="pl-arr">↗</span></a>
+          <a href="https://www.fiverr.com" target="_blank" class="pl"><div class="pl-l"><span class="pl-icon">🟢</span><span class="pl-name">Order on Fiverr</span></div><span class="pl-arr">↗</span></a>
+          <a href="https://www.freelancer.com" target="_blank" class="pl"><div class="pl-l"><span class="pl-icon">🔷</span><span class="pl-name">Freelancer.com</span></div><span class="pl-arr">↗</span></a>
+          <a href="https://www.toptal.com" target="_blank" class="pl"><div class="pl-l"><span class="pl-icon">🔵</span><span class="pl-name">Toptal Network</span></div><span class="pl-arr">↗</span></a>
+        </div>
+      </div>
+      <div class="clinks reveal">
+        <a href="mailto:mdibrahimkholil.dev@gmail.com" class="cl"><div><span class="cl-type">Email</span><span class="cl-val">mdibrahimkholil.dev@gmail.com</span></div><span class="cl-arr">↗</span></a>
+        <a href="https://www.linkedin.com/in/ibrahim2890" target="_blank" class="cl"><div><span class="cl-type">LinkedIn</span><span class="cl-val">linkedin.com/in/ibrahim2890</span></div><span class="cl-arr">↗</span></a>
+        <a href="https://github.com/mdibrahimdev" target="_blank" class="cl"><div><span class="cl-type">GitHub</span><span class="cl-val">github.com/mdibrahimdev</span></div><span class="cl-arr">↗</span></a>
+        <a href="https://kaggle.com/mdibrahim33" target="_blank" class="cl"><div><span class="cl-type">Kaggle</span><span class="cl-val">kaggle.com/mdibrahim33</span></div><span class="cl-arr">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">© 2026 Md Ibrahim · Data Scientist · Rajshahi, Bangladesh</div>
+  <div class="fnav">
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i*60);
+  });
+},{threshold:0.06});
+reveals.forEach(el => obs.observe(el));
+
+function filterP(cat,btn){
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.proj').forEach(p=>{
+    if(cat==='all'||p.dataset.cat===cat){
+      p.style.display='flex';
+      setTimeout(()=>p.style.opacity='1',10);
+    }else{
+      p.style.opacity='0';
+      setTimeout(()=>p.style.display='none',200);
+    }
+  });
+}
+</script>
+</body>
+</html>
